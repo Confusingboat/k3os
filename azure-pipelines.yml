@@ -1,0 +1,15 @@
+trigger:
+- azure-pipelines
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: ./scripts/run
+  displayName: 'Run the build'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: './dist/artifacts'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
