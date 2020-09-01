@@ -1,5 +1,6 @@
 trigger:
 - azure-pipelines
+- odh2-plus-r8125
 
 pool:
   vmImage: 'ubuntu-latest'
