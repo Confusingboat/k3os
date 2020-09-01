@@ -23,8 +23,8 @@ COPY --from=package /output/ /usr/src/iso/
 COPY config.yaml /usr/src/iso/k3os/system/
 ADD https://github.com/awesometic/realtek-r8125-dkms/archive/master.zip /usr/src/iso/
 RUN mv /usr/src/iso/master.zip realtek-8125-dkms.zip && \
-    unzip realtek-r8125-dkms.zip && \
-    rm realtek-r8125-dkms.zip && \
+    unzip /usr/src/iso/realtek-r8125-dkms.zip && \
+    rm /usr/src/iso/realtek-r8125-dkms.zip && \
     mkdir -p /output && \
     grub-mkrescue -o /output/k3os.iso /usr/src/iso/. -- -volid K3OS -joliet on && \
     [ -e /output/k3os.iso ] # grub-mkrescue doesn't exit non-zero on failure
